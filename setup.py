@@ -4,23 +4,28 @@ with open("README.md", "r") as fin:
     long_description = fin.read()
 
 setup(
-    name='rocker-extensions',
-    version='0.1.0',
-    packages=['rocker_extensions'],
-    package_data={'rocker_extensions': ['templates/*.em']},
-    author='Andres Montano  ',
-    author_email='andres.montano@tecnalia.com',
+    name='am_rocker',
+    version='0.0.0',
+
     description='Extra plugins for rocker',
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
+
+    author='Andres Montano  ',
+    author_email='andres.montano@tecnalia.com',
+
+    packages=['rocker_extensions'],
+    package_data={'rocker_extensions': ['templates/*.em']},
+
     url="https://git.code.tecnalia.com/andres.montano/rocker-extensions/",
-    license='Apache 2.0',
+
     install_requires=[
         'rocker',
     ],
+
     entry_points={
         'rocker.extensions': [
             'am_devtools = rocker_extensions.extensions:DevTools',
         ]
-    }
+    },
 )
