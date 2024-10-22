@@ -1,11 +1,12 @@
-# rocker-extensions
+# My personal rocker extensions
 
-Additional Rocker extensions.
+## Dev Tools
 
-```bash
-pipx inject rocker git+https://git.code.tecnalia.com/andres.montano/rocker_extensions.git
+Install packages useful for development with, e.g.:
+
+```
+rocker --am-dev-tools ubuntu:bionic
 ```
 
-## Extensions
 
 
