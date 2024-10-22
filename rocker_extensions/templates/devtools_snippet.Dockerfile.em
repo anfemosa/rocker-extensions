@@ -1,7 +1,7 @@
 # workspace development helpers
 RUN apt-get update \
   && apt-get install -y \
-  bat
+  bat \
   build-essential \
   clang-format clang-tidy clang-tools clang \
   cmake \
