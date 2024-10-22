@@ -14,9 +14,11 @@ RUN apt-get update \
   git-lfs \
   iputils-ping \
   less \
+  lsd \
   nano \
   net-tools \
   openssh-client \
+  ripgrep \
   trash-cli \
   wget \
   x11-apps \
