@@ -23,5 +23,4 @@ RUN apt-get update \
   wget \
   x11-apps \
   xterm \
-  zsh \
   && apt-get clean

@@ -27,7 +27,8 @@ setup(
 
     entry_points={
         'rocker.extensions': [
-            'am_devtools = rocker_extensions.extensions:DevTools',
+            'am_devtools = rocker_extensions.dev_tools:DevTools',
+            'am_rostools = rocker_extensions.extensions:RosTools',
         ]
     },
 )

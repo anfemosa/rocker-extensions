@@ -27,14 +27,16 @@ def get_docker_version():
     return Version(docker_version_raw.split('-')[0])
 
 
-class DevTools(RockerExtension):
+
+
+class RosTools(RockerExtension):
     @staticmethod
     def get_name():
-        return 'am_devtools'
+        return 'am_rostools'
 
     def __init__(self):
         self._env_subs = None
-        self.name = DevTools.get_name()
+        self.name = RosTools.get_name()
 
     def get_environment_subs(self):
         if not self._env_subs:
@@ -42,7 +44,7 @@ class DevTools(RockerExtension):
         return self._env_subs
 
     def get_snippet(self, cliargs):
-        snippet = pkgutil.get_data('rocker_extensions', 'templates/devtools_snippet.Dockerfile.em').decode('utf-8')
+        snippet = pkgutil.get_data('rocker_extensions', 'templates/rostools_snippet.Dockerfile.em').decode('utf-8')
         return em.expand(snippet, self.get_environment_subs())
 
     def get_docker_args(self, cliargs):
@@ -50,7 +52,36 @@ class DevTools(RockerExtension):
 
     @staticmethod
     def register_arguments(parser, defaults={}):
-        parser.add_argument(name_to_argument(DevTools.get_name()),
+        parser.add_argument(name_to_argument(RosTools.get_name()),
                             action='store_true',
-                            default=defaults.get(DevTools.get_name(), None),
-                            help="add development tools")
+                            default=defaults.get(RosTools.get_name(), None),
+                            help="add ros tools")
+
+
+class PeakDriver(RockerExtension):
+    @staticmethod
+    def get_name():
+        return 'am_peakdriver'
+
+    def __init__(self):
+        self._env_subs = None
+        self.name = PeakDriver.get_name()
+
+    def get_environment_subs(self):
+        if not self._env_subs:
+            self._env_subs = {}
+        return self._env_subs
+
+    def get_snippet(self, cliargs):
+        snippet = pkgutil.get_data('rocker_extensions', 'templates/peak_snippet.Dockerfile.em').decode('utf-8')
+        return em.expand(snippet, self.get_environment_subs())
+
+    def get_docker_args(self, cliargs):
+        return " -e EDITOR"
+
+    @staticmethod
+    def register_arguments(parser, defaults={}):
+        parser.add_argument(name_to_argument(PeakDriver.get_name()),
+                            action='store_true',
+                            default=defaults.get(PeakDriver.get_name(), None),
+                            help="add peak driver")

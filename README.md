@@ -5,8 +5,15 @@
 Install packages useful for development with, e.g.:
 
 ```
-rocker --am-dev-tools ubuntu:bionic
+rocker --am_devtools ubuntu:bionic
 ```
 
+## Ros Tools
+
+Install ros packages useful for development with, e.g.:
+
+```
+rocker --am_rostools ubuntu:bionic
+```
 
 
