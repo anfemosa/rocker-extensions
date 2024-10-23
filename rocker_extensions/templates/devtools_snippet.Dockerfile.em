@@ -14,7 +14,7 @@ RUN apt-get update \
   git-lfs \
   iputils-ping \
   less \
-  lsd \
+  # lsd \ only available after ubuntu 24.04
   nano \
   net-tools \
   openssh-client \
